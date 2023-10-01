@@ -33,7 +33,7 @@ async function startApolloServer(schema: any, resolvers: any) {
   await server.start(); //start the GraphQL server.
   server.applyMiddleware({ app });
   await new Promise<void>(
-    (resolve) => httpServer.listen({ port: 4000 }, resolve) //run the server on port 4000
+    (resolve) => httpServer.listen({ port: process.env.PORT || 4000 }, resolve) //run the server on port 4000
   );
 
   console.log(`Server ready at http://localhost:4000${server.graphqlPath}`);

@@ -45,7 +45,7 @@ export const upsertBalanceSvc = async (
       );
     }
 
-    const data = await Balance.findOneAndUpdate(
+    const data: BalanceType = await Balance.findOneAndUpdate(
       { walletAddress: walletAddress },
       newBalance,
       {
@@ -53,7 +53,7 @@ export const upsertBalanceSvc = async (
         upsert: true, // Make this update into an upsert
       }
     );
-
+    data.value = data.balance * coinData.price;
     return data;
   } catch (err) {
     console.error(err);

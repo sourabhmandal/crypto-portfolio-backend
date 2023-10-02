@@ -16,7 +16,7 @@ export const upsertBalanceSvc = async (
   if (walletAddress == "") {
     throw new Error("wallet address not provided");
   }
-  if (symbol != "") {
+  if (symbol == "") {
     throw new Error("symbol not provided");
   }
 

@@ -12,7 +12,8 @@ export const upsertBalanceSvc = async (
   symbol: string,
   balance: number
 ) => {
-  if (walletAddress != "") {
+  console.log(walletAddress, symbol, balance);
+  if (walletAddress == "") {
     throw new Error("wallet address not provided");
   }
   if (symbol != "") {

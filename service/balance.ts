@@ -20,12 +20,6 @@ export const upsertBalanceSvc = async (
     throw new Error("symbol not provided");
   }
 
-  if (
-    /^0x[a-fA-F0-9]{40}$/g.test(walletAddress) == false ||
-    /^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/g.test(walletAddress) == false
-  ) {
-    throw new Error("invalid wallet address");
-  }
   const newBalance: BalanceType = {
     walletAddress: walletAddress,
     balance: balance ?? 0,

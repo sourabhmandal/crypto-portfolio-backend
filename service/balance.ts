@@ -46,7 +46,7 @@ export const upsertBalanceSvc = async (
     }
 
     const data: BalanceType = await Balance.findOneAndUpdate(
-      { walletAddress: walletAddress },
+      { walletAddress: walletAddress, symbol: symbol },
       newBalance,
       {
         new: true,
